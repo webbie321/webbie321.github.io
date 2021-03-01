@@ -178,7 +178,7 @@ Not very useful since we don't always have access to the command line interface,
 ### Digging up with Frida
 
 Let's use [Frida](https://frida.re/) to check out what is happening under
-the hood with the AMSI APIs, following the technique described in [this post](
+the hood with the AMSI APIs, following the steps described in [this post](
 https://www.contextis.com/en/blog/amsi-bypass). Having the [list](
 https://docs.microsoft.com/en-us/windows/win32/amsi/antimalware-scan-interface-functions)
 of different AMSI functions can be useful as reference in order to follow this section.
