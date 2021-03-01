@@ -22,7 +22,7 @@ Usual disclaimer: do not use anything from here on a system without its owner's 
 
 While taking Offensive Security's [PEN-300 course](
 https://www.offensive-security.com/pen300-osep/), I learned some interesting advanced techniques to bypass AMSI. We used WinDbg,
-Frida; we learned about attacking initialization, patching,... You can see a bit more details in the [syllabus](
+Frida; we learned about attacking initialization, patching functions... You can see a bit more details in the [syllabus](
 https://www.offensive-security.com/documentation/PEN300-Syllabus.pdf). It's been a fun course so far!
 
 On the other side, one of my classmates wondered why we bothered with all
