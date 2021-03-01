@@ -84,7 +84,7 @@ The screenshot below shows a blacklisted keyword getting caught by AMSI,
 then our one-liner bypass, and the same keyword not getting caught anymore:
 
 
-![image0.png]({{site.baseurl}}/_posts/images/image0.png)
+![image0.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image0.png)
 
 
 ## AMSIScanBuffer patch
