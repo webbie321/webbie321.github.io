@@ -600,7 +600,7 @@ Let's test it. Very nice!
 ## Conclusion
 
 Our imaginary script kiddie has made a little bit of progress since their
-time of just modifying a short ans sweet AMSI bypass tweet.
+time of just modifying a short and sweet AMSI bypass tweet.
 
 We demonstrated a script-splitting technique which reduces Windows
 Defender's ability to make connections between different part of a script.
