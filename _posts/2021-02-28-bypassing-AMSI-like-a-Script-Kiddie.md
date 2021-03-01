@@ -352,7 +352,7 @@ can? This is what we'll be doing in our next section using Runspaces.
 ## Runspaces and Powershell objects 
 (a.k.a. script kiddie learns some PowerShell)
 
-### Quick intro to Powershell runspaces
+### Quick and lazy intro to Powershell runspaces
 
 "Runspaces are the enclosed area that the thread(s) running PowerShell
 operate within. While the runspace that is used with the PowerShell console
@@ -362,8 +362,11 @@ https://adamtheautomator.com/powershell-multithreading/#Runspaces_Kinda_Like_Job
 )
 
 In a penetration testing/red teaming context, Powershell runspace  has been
-used to bypass applocker and CLM constrained language mode
+used to bypass applocker and CLM constrained language mode.
+[(More info)](
 https://www.redteam.cafe/red-team/powershell/powershell-custom-runspace
+)
+
 
 ### Using runspaces to split AMSI scans into multiple sessions
 
