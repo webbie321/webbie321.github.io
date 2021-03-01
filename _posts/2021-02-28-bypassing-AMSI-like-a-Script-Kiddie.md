@@ -46,7 +46,7 @@ We assume the reader is a bit familiar with AMSI. Otherwise, reading the [Window
 https://docs.microsoft.com/en-us/windows/win32/amsi/how-amsi-helps) is 
 a good start. We also won't be spending too
 much time explaining how existing bypasses work in depth, as there are plenty of
-resources out there that do this much better than I would, including some linked in this article. 
+resources out there that do this much better than I would, including some linked to in this article. 
 
 In this post we will stay in the context of AMSI and PowerShell. (AMSI is a lot more than just PowerShell).
 
