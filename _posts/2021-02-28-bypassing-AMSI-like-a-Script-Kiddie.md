@@ -152,7 +152,7 @@ We can also obfuscate automatically our original script using [AMSI.fail](
 https://amsi.fail/). This tool will alternate between obfuscation
 techniques each time we run it. In my limited experience, we obtain an
 undetected result less than 25% of the time when trying to obfuscate Rasta
-Mouse's original script. It kinda passes the script kiddie threshold, but
+Mouse's original script. As in, you have to run the tool several times before having a working result. It kinda passes the script kiddie threshold, but
 it's also a bit too much trial and error.
 
 Also, I question using third party tools to obfuscate my scripts from a
