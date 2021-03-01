@@ -7,12 +7,14 @@ tags:
   - AMSI
   - PowerShell
 ---
-## Bypassing AMSI like a Script Kiddie
-
-### Introduction
 
 Today I will share some of my findings from playing around with Antimalware
 scan Interface (AMSI) on PowerShell.
+
+<!--more-->
+### Introduction
+
+
 
 <!--more-->
 
