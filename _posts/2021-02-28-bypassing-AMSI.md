@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ## Bypassing AMSI like a Script Kiddie
 
