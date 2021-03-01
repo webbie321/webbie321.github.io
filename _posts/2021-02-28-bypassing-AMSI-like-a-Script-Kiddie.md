@@ -8,7 +8,7 @@ tags:
   - PowerShell
 ---
 
-Today I will share some of my findings from playing around with Antimalware
+Today, I will share some of my findings from playing around with Antimalware
 scan Interface (AMSI) on PowerShell.
 
 <!--more-->
