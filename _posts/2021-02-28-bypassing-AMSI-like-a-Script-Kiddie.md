@@ -57,8 +57,8 @@ in a tweet.
 
 One of the first discovered bypasses was published by Matt Graeber in 2016
 and could fit in a [single tweet](
-https://twitter.com/mattifestation/status/735261120487772160), or 132
-characters. It uses reflection to set amsiInitFailed to True, which
+https://twitter.com/mattifestation/status/735261120487772160), being 132
+characters long. It uses reflection to set amsiInitFailed to True, which
 effectively turns off AMSI in a PowerShell session.
 
 ```
