@@ -25,11 +25,11 @@ https://www.offensive-security.com/pen300-osep/), I learned some interesting adv
 Frida; we learned about attacking initialization, patching functions... You can see a bit more details in the [syllabus](
 https://www.offensive-security.com/documentation/PEN300-Syllabus.pdf). It's been a fun course so far!
 
-On the other side, one of my classmates wondered why we bothered with all
+Perhaps a bit boldly, one of my classmates wondered why we bothered with all
 those techniques when we can just concatenate some strings and not get
 caught by AMSI.
 
-While I disagree about not learning and understanding the advanced
+While I strongly believe in learning and understanding the advanced
 techniques, I'd have to agree with my classmate that AMSI seems to be pretty
 trivial to bypass.
 
