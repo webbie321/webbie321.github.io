@@ -1,5 +1,11 @@
 ---
-published: true
+title: "Bypassing AMSI like a Script Kiddie"
+excerpt_separator: "<!--more-->"
+categories:
+  - Blog
+tags:
+  - AMSI
+  - PowerShell
 ---
 ## Bypassing AMSI like a Script Kiddie
 
