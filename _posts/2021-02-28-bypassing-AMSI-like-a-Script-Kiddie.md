@@ -26,8 +26,7 @@ Frida; we learned about attacking initialization, patching functions... You can 
 https://www.offensive-security.com/documentation/PEN300-Syllabus.pdf). It's been a fun course so far!
 
 Perhaps a bit boldly, one of my classmates wondered why we bothered with all
-those techniques when we can just concatenate some strings and not get
-caught by AMSI.
+those techniques when we can just concatenate some strings and smash AMSI.
 
 While I strongly believe in learning and understanding the advanced
 techniques, I'd have to agree with my classmate that AMSI seems to be pretty
