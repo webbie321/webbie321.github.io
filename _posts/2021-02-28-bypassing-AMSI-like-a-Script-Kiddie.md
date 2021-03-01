@@ -12,16 +12,15 @@ Today I will share some of my findings from playing around with Antimalware
 scan Interface (AMSI) on PowerShell.
 
 <!--more-->
-### Introduction
+## Introduction
 
 
 
 <!--more-->
 
 While taking Offensive Security's [PEN-300 course](
-https://www.offensive-security.com/pen300-osep/) leading to the OSEP
-certificate, I learned a fair bit about developping AMSI bypasses. WinDbg,
-Frida, Initialization, Patching,... We did it all (see the [syllabus](
+https://www.offensive-security.com/pen300-osep/), I learned a fair bit about developping AMSI bypasses. WinDbg,
+Frida, Initialization, Patching,... We learned a bunch (see the [syllabus](
 https://www.offensive-security.com/documentation/PEN300-Syllabus.pdf)).
 
 On the other side, one of my classmates wondered why we bothered with all
@@ -52,7 +51,7 @@ In this post we will stay in the context of AMSI and PowerShell scripts.
 Let's start our first full fledged bypass that our script kiddie finds...
 in a tweet.
 
-### The 140 character bypass
+## The 140 character bypass
 
 One of the first discovered bypasses was published by Matt Graeber in 2016
 and could fit in a [single tweet](
@@ -88,7 +87,7 @@ then our one-liner bypass, and the same keyword not getting caught anymore:
 ![image0.png]({{site.baseurl}}/_posts/images/image0.png)
 
 
-### AMSIScanBuffer patch
+## AMSIScanBuffer patch
 
 [AMSIScanBuffer](
 https://docs.microsoft.com/en-us/windows/win32/api/amsi/nf-amsi-amsiscanbuf=
@@ -170,7 +169,7 @@ Also, I question using third parties to obfuscate my scripts from a
 security perspective.
 
 
-### Splitting the Script
+## Splitting the Script
 
 
 Let's get started with rejuvenating Rasta Mouses's bypass. We split our
@@ -186,7 +185,7 @@ parts.
 
 Not very useful if we just want a one liner, but bear with me.
 
-#### Digging with Frida
+### Digging with Frida
 
 Let's use [Frida](https://frida.re/) to check out what is happening under
 the hood with the AMSI APIs, similarly to what is described in [this post](
@@ -225,7 +224,7 @@ prompts, the same thing happened. Each part got scanned separately, each in
 their own AMSI session. None triggered AMSI individually, and Windows
 Defender didn't somehow link the parts together.
 
-#### Going for a one-liner
+### Going for a one-liner
 
 We're a bit unhappy with running our script manually, one chunk at a time
 on the PowerShell GUI, so we will now work on getting it all on one prompt.
@@ -278,7 +277,7 @@ We now have a 1 liner that bypasses AMSI, with only 1 download and no
 modifications to the original script.
 
 
-#### Frida Again
+### Frida Again
 
 Let's peek again, after running this last 1 liner.
 
@@ -322,7 +321,7 @@ Our bypass works, so we could stop here and be satisfied with our working
 result, or we could dig a bit deeper into AMSI sessions.
 
 
-### AMSI Sessions
+## AMSI Sessions
 
 The [Microsoft Docs](
 https://docs.microsoft.com/en-us/windows/win32/amsi/antimalware-scan-interf=
@@ -355,9 +354,9 @@ vendors are using sessions? I haven't tested yet. If you know
 Still, wouldn't it be interesting to bypass that capability just because we
 can? This is our next section with Runspaces.
 
-### Runspaces and Powershell objects (a.k.a. skid learns some PowerShell)
+## Runspaces and Powershell objects (a.k.a. skid learns some PowerShell)
 
-#### Quick intro to Powershell runspaces
+### Quick intro to Powershell runspaces
 
 "Runspaces are the enclosed area that the thread(s) running PowerShell
 operate within. While the runspace that is used with the PowerShell console
@@ -371,7 +370,7 @@ In a penetration testing/red teaming context, Powershell runspace  has been
 used to bypass applocker and CLM constrained language mode
 https://www.redteam.cafe/red-team/powershell/powershell-custom-runspace
 
-#### Using runspaces to split AMSI scans into multiple sessions
+### Using runspaces to split AMSI scans into multiple sessions
 
 Here we are not really interested in multithreading, but into the
 additional control runspaces give us. Our goal is to run individual
@@ -453,9 +452,9 @@ Commands.Clear()
 ;$PowerShell.AddScript({IEX($full.substring(651,126))}).Invoke();
 ```
 
-### An actual case where we need separate AMSI sessions
+## An actual case where we need separate AMSI sessions
 
-#### Intro
+### Intro
 
 In the last section, we responded to a =E2=80=9Cwhat-if=E2=80=9D scenario: =
 a case where an
@@ -492,7 +491,7 @@ It works.
 ![image14.png]({{site.baseurl}}/_posts/images/image14.png)
 
 
-#### AmsiOpenSession patch
+### AmsiOpenSession patch
 
 Now, let's create a new AMSI bypass script. Instead of patching
 AmsiScanBuffer, we want to scan AmsiOpenSession. Since we're a script
