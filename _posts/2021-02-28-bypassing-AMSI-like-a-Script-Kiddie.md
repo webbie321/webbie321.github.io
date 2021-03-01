@@ -439,7 +439,7 @@ $Runspace = [runspacefactory]::CreateRunspace();$Runspace.Open();$PowerShell =[p
 
 ### Intro
 
-In the last section, we responded to a "what-if" scenario: a case where an
+In the last section, we responded to a "what-if", hypothetical scenario: a case where an
 Antivirus would actually correlates multiple buffers within one AMSI session.
 
 Let's now look at a scenario where the runspace technique is actually
