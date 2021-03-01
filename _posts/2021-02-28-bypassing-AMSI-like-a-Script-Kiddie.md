@@ -173,7 +173,7 @@ As shown above, the bypass doesn't get caught, and we successfully turn off
 AMSI. Defender is triggered by the whole script but not by its individual
 parts.
 
-Not very useful if we just want a one liner, but bear with me.
+Not very useful since we don't always have access to the command line interface, but bear with me.
 
 ### Digging up with Frida
 
