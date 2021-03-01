@@ -614,3 +614,5 @@ bypass.
 
 I hope you will have found some inspiration to dig
 further, come up with new ideas, and share your findings with the infosec community.
+
+![Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fwebbie321.github.io%2Fblog%2Fbypassing-AMSI-like-a-Script-Kiddie%2F)
