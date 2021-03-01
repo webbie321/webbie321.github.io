@@ -544,7 +544,7 @@ Remember that the exact same technique applied with an AmsiScanBuffer patch
 worked fine.
 
 Our problem here is that, although we patched AmsiOpenSession, our
-malicious command is being run within the same AMSI session as the patch.
+malicious command is being run within the same AMSI session as the patching script.
 A simplified view of what happens behind the scenes is shown below:
 
 ```
