@@ -338,8 +338,7 @@ scanned in one go. So, if Defender had tried to "correlate"
 just simply concatenated the 3 strings that it is analyzing in the same session,
 it would have caught our technique. But it didn't.
 
-Additionally, I applied the same "splitting the script" technique to a Me=
-terpreter
+As an additionnal experiment, I applied the same "splitting the script" technique to a Meterpreter
 first-stage Powershell script, and, again, Defender didn't seem to combine
 the pieces (6-7 pieces in this case).
 
@@ -351,7 +350,7 @@ Still, wouldn't it be interesting to bypass that capability just because we
 can? This is what we'll be doing in our next section using Runspaces.
 
 ## Runspaces and Powershell objects 
-(a.k.a. scrpit kiddie learns some PowerShell)
+(a.k.a. script kiddie learns some PowerShell)
 
 ### Quick intro to Powershell runspaces
 
