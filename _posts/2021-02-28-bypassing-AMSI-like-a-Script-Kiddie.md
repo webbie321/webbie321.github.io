@@ -84,6 +84,10 @@ then our one-liner bypass, and the same keyword not getting caught anymore:
 
 ![image0.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image0.png)
 
+Edit (03-23-2021): The above now gets caught, we made a tiny modification and we're back in the AMSI tweet game!
+
+![image0b.png]({{ site.url }}{{ site.baseurl }}/assets/images/amsi/image0b.png)
+
 
 ## AMSIScanBuffer patch
 
